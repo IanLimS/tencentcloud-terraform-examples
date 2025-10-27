@@ -1,11 +1,18 @@
 # TencentCloud VPC VPN Terraform Project
 
 ## Project Overview
-This project provides Terraform code for configuring VPC and VPN Gateway on Tencent Cloud. Key features include:
+This project provides Terraform code for configuring VPC and VPC Peering connection Tencent Cloud. 
+Key features include:
 - VPC creation and configuration
-- VPN Gateway setup
 - VPC Peering connection
 - Security Group rule management
+- COS bucket creation
+
+For additional use case of COS migration, 
+following manual creation is also required, after automatically create resources through terraform :
+- VPC endpoint for COS migration
+- Installing COS migration agent into CVM in source VPC : https://www.tencentcloud.com/document/product/1036/51593
+- Configure COS migration task in console
 
 ## Environment Setup
 ### Prerequisites

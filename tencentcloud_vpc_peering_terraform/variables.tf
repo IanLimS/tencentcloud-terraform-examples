@@ -19,5 +19,5 @@ variable "image_id" {
 }
 
 variable "instance_type" {
-  default = "S5.MEDIUM4"
+  default = "SA5.MEDIUM4"
 }

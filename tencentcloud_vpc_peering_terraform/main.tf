@@ -96,6 +96,7 @@ resource "tencentcloud_instance" "cvm1" {
   instance_name              = "ianlim-peering-cvm1"
   image_id                   = var.image_id
   instance_type              = var.instance_type
+  vpc_id                     = tencentcloud_vpc.vpc1.id
   subnet_id                  = tencentcloud_subnet.subnet1.id
   availability_zone          = var.zone
   security_groups            = [tencentcloud_security_group.sg1.id]
@@ -105,9 +106,24 @@ resource "tencentcloud_instance" "cvm2" {
   instance_name              = "ianlim-peering-cvm2"
   image_id                   = var.image_id
   instance_type              = var.instance_type
-  subnet_id                  = tencentcloud_subnet.subnet1.id
+  vpc_id                     = tencentcloud_vpc.vpc2.id
+  subnet_id                  = tencentcloud_subnet.subnet2.id
   availability_zone          = var.zone
   security_groups            = [tencentcloud_security_group.sg2.id]
+}
+
+##################
+# VPC Peering
+##################
+
+resource "tencentcloud_vpc_peer_connect_manager" "peering_connection" {
+  source_vpc_id         = tencentcloud_vpc.vpc1.id
+  destination_vpc_id    = tencentcloud_vpc.vpc2.id
+  destination_region    = var.region
+  destination_uin       = var.uin
+  peering_connection_name = "ianlim-peering-connection"
+  # Optional: Set bandwidth, charge type, etc.
+  # bandwidth = 100
 }
 
 ##################
