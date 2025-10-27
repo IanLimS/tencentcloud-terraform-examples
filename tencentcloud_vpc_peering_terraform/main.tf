@@ -49,7 +49,7 @@ resource "tencentcloud_security_group_lite_rule" "sg1" {
   security_group_id = tencentcloud_security_group.sg1.id
 
   ingress = [
-    "ACCEPT#0.0.0.0/0#22#SSH",
+    "ACCEPT#0.0.0.0/0#22#TCP",
     "ACCEPT#0.0.0.0/0#80#TCP",
     "ACCEPT#0.0.0.0/0#443#TCP",
     "ACCEPT#0.0.0.0/0#22011#TCP",
@@ -58,7 +58,7 @@ resource "tencentcloud_security_group_lite_rule" "sg1" {
   ]
 
   egress = [
-    "ACCEPT#0.0.0.0/0#22#SSH",
+    "ACCEPT#0.0.0.0/0#22#TCP",
     "ACCEPT#0.0.0.0/0#80#TCP",
     "ACCEPT#0.0.0.0/0#443#TCP",
     "ACCEPT#0.0.0.0/0#22011#TCP",
