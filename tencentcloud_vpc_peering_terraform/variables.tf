@@ -2,6 +2,10 @@ variable "uin" {
   default = "100013078656"
 }
 
+variable "app_id" {
+  default = "1301344332"
+}
+
 variable "region" {
   default = "ap-seoul"
 }
