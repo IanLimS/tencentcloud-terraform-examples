@@ -1,3 +1,6 @@
+
+
+
 ##################
 # VPC 
 ##################
@@ -145,4 +148,15 @@ resource "tencentcloud_cos_bucket" "cos2" {
   tags = {
     SA = "ianlim"
   }
+}
+
+module "database" {
+  source = "./modules/database"
+  vpc_id    = tencentcloud_vpc.vpc1.id
+  subnet_id = tencentcloud_subnet.subnet1.id
+  depends_on = [
+    tencentcloud_vpc.vpc1,
+    tencentcloud_subnet.subnet1,
+    tencentcloud_vpc_peer_connect_manager.peering_connection
+  ]
 }
