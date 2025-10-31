@@ -28,7 +28,4 @@ output "mysql_port" {
   value       = tencentcloud_mysql_instance.mysql.internet_port
 }
 
-output "cvm_public_ip" {
-  description = "The public IP of the CVM instance"
-  value       = tencentcloud_instance.cvm.public_ip
-}
+

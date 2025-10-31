@@ -51,8 +51,6 @@ resource "tencentcloud_mysql_instance" "mysql" {
   subnet_id          = tencentcloud_subnet.subnet.id
   security_groups    = [tencentcloud_security_group.sg.id]
   internet_service   = 1
-  internet_host      = ""
-  internet_port      = 3306
 }
 
 resource "tencentcloud_instance" "jump_server" {
@@ -61,6 +59,7 @@ resource "tencentcloud_instance" "jump_server" {
   image_id            = "img-9qabwvbn"
   vpc_id              = tencentcloud_vpc.vpc.id
   subnet_id           = tencentcloud_subnet.subnet.id
+  availability_zone          = var.availability_zone
   security_groups     = [tencentcloud_security_group.sg.id]
   allocate_public_ip  = true
 
